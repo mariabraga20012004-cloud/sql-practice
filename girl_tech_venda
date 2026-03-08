@@ -1,0 +1,23 @@
+CREATE TABLE tech (
+  id_tech int,
+  produto varchar (50),
+  categoria varchar (50), 
+  quantidade int,
+  preco decimal (10,2)
+  );
+
+INSERT INTO tech VALUES
+(1, 'Notebook', 'Eletrônicos', 2, 4500.00),
+(2, 'Mouse Sem Fio', 'Tecnologia', 6, 89.90),
+(3, 'Fone de Ouvido rosa', 'Tecnologia', 200.00), 
+(4, 'Gloss Labial', 'Maquiagem', 1, 75.00), 
+(5, 'Scarpin', 'Calçados', 1, 149.90),
+(6, 'Bolsa Feminina', 'Moda', 4, 199.90); 
+
+SELECT produto, SUM(quantidade) AS total_vendido  
+FROM tech
+GROUP BY produto; 
+
+SELECT categoria, SUM(preco * quantiade) AS faturamento 
+FROM tech
+GROUP BY categoria; 
